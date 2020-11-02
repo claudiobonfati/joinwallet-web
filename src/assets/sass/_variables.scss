@@ -1,0 +1,18 @@
+// ==========================================================================
+// Theme Custom Variables
+// ==========================================================================
+
+$color-config:( "blue":   #4b63a0,
+                "beige":  #bda25c,
+                "pink":   #fd797e,
+                "aqua":   #76e3d4
+);
+
+// Some predefined font-sizes. Each value is for a specific screen size (bootstrap), see below.
+// To apply the font-size, add the class "font-[fontsizename]" to HTML element.
+//                  NAME   XL     LG     MD    SM    XS
+$fontsize-config:   "lg"   20px   20px   20px  20px  20px,
+                    "md"   15px   15px   15px  15px  15px,
+                    "sm"   13px   13px   13px  13px  13px;
+
+$fixed-vh: 555px;

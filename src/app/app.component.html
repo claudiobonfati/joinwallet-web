@@ -1,0 +1,14 @@
+<div class="jw-main-wrapper" ontouchstart="">
+	<div id="jw-wrapper-router" class="box-general-content">
+    <div class="w-100 h-100">
+      <router-outlet #routerOutlet="outlet"></router-outlet>
+    </div>
+    <div class="jw-menu-wrapper" *ngIf="httpService.checkAuth()">
+      <app-menu></app-menu>
+    </div>
+	</div>
+  <div class="credit-bottom noselect">
+    coded with <span role="img" aria-label="coffee">☕</span> by
+    <strong><a href="https://www.linkedin.com/in/claudiobonfati/" target="_blank" class="text-white text-decoration-underline" title="LinkedIn Claudio Bonfati">Claudio Bonfati</a></strong>
+  </div>
+</div>

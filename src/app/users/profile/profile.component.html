@@ -1,0 +1,58 @@
+<div id="jw-content-wrapper">
+  <form [formGroup]="profileForm" (ngSubmit)="update()" class="w-100 h-100">
+    <div class="h-100 row align-items-center">
+      <div class="col text-center">
+        <div class="w-100">
+          <a href="javascript:void(0);" title="{{ env.name }}" routerLink="/">
+            <img src="assets/images/logo-join-wallet.png" alt="{{ env.name }}" id="logo-jw" class="mb-2">
+          </a>
+          <br>
+          <i class="lay-color-aluminium">Porque juntos somos mais fortes.</i>
+        </div>
+        <div class="w-100">
+          <div class="field-theme-01-blue mb-3"
+            [class.animate-shake]="nameAnimateShake">
+            <span class="icomoon-person icon-left"></span>
+            <input type="text"
+            id="profile-name"
+            placeholder="Nome"
+            formControlName="name" >
+            <span class="icomoon-warning icon-right"></span>
+          </div>
+        </div>
+        <div class="w-100">
+          <div class="field-theme-01-blue mb-3" >
+            <span class="icomoon-mail icon-left"></span>
+            <input type="email"
+            id="profile-email"
+            placeholder="Email"
+            formControlName="email" >
+            <span class="icomoon-warning icon-right"></span>
+          </div>
+        </div>
+        <div class="w-100 pb-2">
+          <button class="btn-border-blue btn-loader-effect w-100 font-weight-bold lay-bg-blue text-white"
+          [ngClass]="profileBtnStatus">
+            <span class="btn-loader-text">
+              Atualizar
+            </span>
+            <span class="btn-loader-icon-loading">
+              <i-feather name="loader"></i-feather>
+            </span>
+            <span class="btn-loader-icon-ok">
+              <i-feather name="check"></i-feather>
+            </span>
+            <span class="btn-loader-icon-error">
+              <i-feather name="alert-triangle"></i-feather>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class="col-12 align-self-end text-center">
+        <a (click)="httpService.logout()" title="Sair" class="font-weight-bold text-decoration-none p-2 c-pointer lay-color-blue">
+          <span class="lay-color-aluminium">Sair</span>
+        </a>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,271 @@
+// ==========================================================================
+// LAYOUT > FORMS
+// ==========================================================================
+
+button
+  font-size: 14px
+  cursor: pointer
+  background-color: transparent
+  &:focus
+    box-shadow: 0
+    outline: none
+
+[class*="field-theme-01"]
+  position: relative
+
+  &.animate-shake
+    input,
+    .icon-left,
+    .icon-right
+      animation: shake .8s cubic-bezier(.36,.07,.19,.97) both
+
+  input
+    position: relative
+    display: block
+    width: 100%
+    min-height: 40px
+    padding-left: 25px
+    background-color: transparent
+    border: 0
+    border-radius: 0
+    border-bottom: 2px solid map-get($color-config, "blue")
+    font-size: 14px
+    color: map-get($color-config, "blue")
+    @include transition(all .1s ease-out)
+
+    &:focus
+      outline: none
+
+  .icon-left,
+  .icon-right
+    position: absolute
+    top: 50%
+    margin-top: -8px
+    font-size: 16px
+    color: map-get($color-config, "blue")
+
+  .icon-left
+    left: 0
+
+  .icon-right
+    right: 0
+    opacity: 0
+    transform: scale(0)
+    @include transition(all .2s ease-out)
+
+  &.is-invalid
+    input
+      padding-right: 25px
+    .icon-right
+      opacity: 1
+      transform: scale(1)
+
+  .error-msg
+    position: absolute
+    width: 100%
+    top: 100%
+    margin-top: 2px
+    left: 0
+    font-size: 13px
+    color: #FFFFFF
+    text-align: left
+    opacity: 0
+    @include transition(all .2s ease-out)
+
+    &.show
+      opacity: .5
+
+
+  @each $color in $color-config
+    &[class*="field-theme-01-#{nth($color, 1)}"]
+      input
+        border-bottom: 2px solid rgba(nth($color, 2), .5)
+        color: nth($color, 2)
+        &::placeholder
+          color: nth($color, 2)
+        &:-ms-input-placeholder
+          color: nth($color, 2)
+        &::-ms-input-placeholder
+          color: nth($color, 2)
+        &:focus
+          border-bottom-color: nth($color, 2)
+      .icon-left,
+      .icon-right
+          color: nth($color, 2)
+
+@keyframes shake
+  10%, 90%
+    transform: translate3d(-1px, 0, 0)
+  20%, 80%
+    transform: translate3d(2px, 0, 0)
+  30%, 50%, 70%
+    transform: translate3d(-4px, 0, 0)
+  40%, 60%
+    transform: translate3d(4px, 0, 0)
+
+[class*="field-theme-02"]
+  position: relative
+  width: 100%
+  padding: 25px 20px 10px
+  border-radius: 15px
+
+  input,
+  select
+    position: relative
+    background-color: transparent
+    // font-weight: bold
+    border: 0
+    font-size: 14px
+    height: 18px
+    width: 100%
+    border: 0
+    padding: 0
+    -webkit-appearance: none
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-calendar-picker-indicator
+      display: none
+      -webkit-appearance: none
+
+    &:focus
+      outline: none
+
+    &::placeholder
+      color: #FFFFFF
+      opacity: .5
+    &:-ms-input-placeholder
+      color: #FFFFFF
+      opacity: .5
+    &::-ms-input-placeholder
+      color: #FFFFFF
+      opacity: .5
+
+    &:focus ~ label
+      transform: translateY(-11px) translateX(-5%) scale(.9)
+
+  &.filled
+    label
+      transform: translateY(-11px) translateX(-5%) scale(.9)
+
+  label
+    margin: 0
+    position: absolute
+    top: 50%
+    left: 20px
+    margin-top: -11px
+    font-weight: bold
+    @include transition(all .2s ease-out)
+
+  &.field-theme-02-light
+    background-color: #FFFFFF
+
+  &.field-theme-02-dark
+    background-color: rgba(black, .17)
+    *
+      color: #FFFFFF
+
+.animate-shake
+  animation: shake .8s cubic-bezier(.36,.07,.19,.97) both
+
+[class*="field-price-theme-01"]
+  position: relative
+  width: 100%
+  padding: 14px 20px 14px
+  border-radius: 15px
+
+  .btn
+    border-radius: 15px
+    width: 40px
+    height: 40px
+    background-color: map-get($color-config, "athens-gray")
+    color: map-get($color-config, "outer-space") !important
+    font-weight: bold
+    position: absolute
+    z-index: 2
+    top: 50%
+    margin-top: -20px
+    cursor: pointer
+    display: -ms-flexbox
+    display: -webkit-flex
+    display: flex
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    -webkit-flex-wrap: nowrap
+    -ms-flex-wrap: nowrap
+    flex-wrap: nowrap
+    -webkit-justify-content: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-align-content: stretch
+    -ms-flex-line-pack: stretch
+    align-content: stretch
+    -webkit-align-items: center
+    -ms-flex-align: center
+    align-items: center
+
+    &.left
+      left: 10px
+    &.right
+      right: 10px
+
+  input
+    position: relative
+    background-color: transparent
+    border: 0
+    font-size: 20px
+    height: 30px
+    width: 100%
+    border: 0
+    padding: 0
+    font-weight: bold
+    text-align: center !important
+    -webkit-appearance: none
+    z-index: 1
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-calendar-picker-indicator
+      display: none
+      -webkit-appearance: none
+
+    &:focus
+      outline: none
+
+    &::placeholder
+      color: #FFFFFF
+      opacity: .5
+    &:-ms-input-placeholder
+      color: #FFFFFF
+      opacity: .5
+    &::-ms-input-placeholder
+      color: #FFFFFF
+      opacity: .5
+
+  &.field-price-theme-01-light
+    background-color: #FFFFFF
+
+  &.field-price-theme-01-dark
+    background-color: rgba(black, .17)
+    *
+      color: #FFFFFF
+
+
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-outer-spin-button,
+input[type=date]::-webkit-calendar-picker-indicator
+  display: none
+  -webkit-appearance: none
+
+.number-keyboard
+  -moz-appearance: textfield
+
+.number-keyboard::-webkit-inner-spin-button,
+.number-keyboard::-webkit-outer-spin-button
+  -webkit-appearance: none
+  margin: 0
+
+.field-inline-invisible
+  background-color: transparent
+  border: 0
+  padding: 0
+  display: inline-block

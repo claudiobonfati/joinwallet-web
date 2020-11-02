@@ -1,0 +1,60 @@
+<div id="jw-content-wrapper">
+  <div class="h-100 row">
+    <div class="col align-self-center text-center">
+      <div class="w-100">
+        <a href="javascript:void(0);" title="{{ env.name }}" routerLink="/">
+          <img src="assets/images/logo-join-wallet.png" alt="{{ env.name }}" id="logo-jw" class="mb-2">
+        </a>
+        <br>
+        <i class="lay-color-aluminium">Porque juntos somos mais fortes.</i>
+      </div>
+      <div class="w-100 position-relative">
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+          <div class="field-theme-01-blue mb-3"
+            [class.is-invalid]="registerSent && registerForm.controls.name.errors">
+            <span class="icomoon-person icon-left"></span>
+            <input type="text"
+            placeholder="Nome"
+            #inputName
+            required
+            formControlName="name" >
+            <span class="icomoon-warning icon-right"></span>
+          </div>
+          <div class="field-theme-01-blue mb-3"
+            [class.is-invalid]="registerSent && registerForm.controls.email.errors"
+            [class.animate-shake]="emailAnimateShake">
+            <span class="icomoon-mail icon-left"></span>
+            <input type="email"
+            placeholder="Email"
+            required
+            formControlName="email" >
+            <span class="icomoon-warning icon-right"></span>
+            <span class="error-msg" [class.show]="registerSent && emailErrorMsg">{{ emailErrorMsg }}</span>
+          </div>
+          <div class="field-theme-01-blue mb-5"
+            [class.is-invalid]="registerSent && registerForm.controls.email.errors"
+            [class.animate-shake]="passwordAnimateShake">
+            <span class="icomoon-mail icon-left"></span>
+            <input type="password"
+            placeholder="Senha"
+            minlength="6"
+            maxlength="6"
+            required
+            formControlName="password" >
+            <span class="icomoon-warning icon-right"></span>
+          </div>
+          <div class="w-100">
+            <button class="btn-border-blue w-100 font-weight-bold lay-bg-blue text-white">
+              Concluir
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-12 text-center align-self-end py-3">
+      <a href="javascript:void(0);" title="Faça o login" routerLink="/login" class="font-weight-bold lay-color-blue text-decoration-none p-2">
+        Já está cadastrado? Faça o login!
+      </a>
+    </div>
+  </div>
+</div>

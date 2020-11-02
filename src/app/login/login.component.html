@@ -1,0 +1,53 @@
+<div id="jw-content-wrapper">
+  <div class="h-100 row">
+    <div class="col align-self-center text-center">
+      <div class="w-100">
+        <a href="javascript:void(0);" title="{{ env.name }}" routerLink="/">
+          <img src="assets/images/logo-join-wallet.png" alt="{{ env.name }}" id="logo-jw" class="mb-2">
+        </a>
+        <br>
+        <i class="lay-color-aluminium">Porque juntos somos mais fortes.</i>
+      </div>
+      <div class="w-100 position-relative">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="field-theme-01-blue mb-3"
+            [class.is-invalid]="loginSent && loginForm.controls.email.errors"
+            [class.animate-shake]="emailAnimateShake">
+            <span class="icomoon-mail icon-left"></span>
+            <input type="email"
+            placeholder="Email"
+            formControlName="email" >
+            <span class="icomoon-warning icon-right"></span>
+            <span class="error-msg" [class.show]="loginSent && emailErrorMsg">{{ emailErrorMsg }}</span>
+          </div>
+          <div class="field-theme-01-blue mb-5"
+            [class.is-invalid]="loginSent && loginForm.controls.password.errors"
+            [class.animate-shake]="passwordAnimateShake">
+            <span class="icomoon-lock-closed icon-left"></span>
+            <input type="password"
+            placeholder="Password"
+            pattern="[0-9]*"
+            inputmode="numeric"
+            formControlName="password">
+            <span class="icomoon-warning icon-right"></span>
+          </div>
+          <button class="btn-border-blue btn-loader-effect w-100 font-weight-bold text-white lay-bg-blue c-pointer"
+          [ngClass]="loginBtnStatus">
+            <span class="btn-loader-text">
+              Entrar!
+            </span>
+            <span class="btn-loader-icon-loading">
+              <i-feather name="loader"></i-feather>
+            </span>
+            <span class="btn-loader-icon-ok">
+              <i-feather name="check"></i-feather>
+            </span>
+            <span class="btn-loader-icon-error">
+              <i-feather name="alert-triangle"></i-feather>
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

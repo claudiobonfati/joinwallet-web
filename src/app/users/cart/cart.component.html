@@ -1,0 +1,23 @@
+<div id="jw-content-wrapper">
+  <div class="h-100 row" *ngIf="data">
+    <div class="col-12 align-self-start">
+      <h4>Meu Carrinho</h4>
+      <ul class="product-list" *ngIf="data.items">
+        <li *ngFor="let item of data.items; index as i;" class="d-flex flex-column">
+          <div class="box-img">
+            <img src="{{ item.product.image }}" alt="{{ item.product.name }}">
+          </div>
+          <div class="w-100 p-2">
+            <h4>{{ item.product.name }}</h4>
+            <h5>R$ {{ item.product.price }}</h5>
+          </div>
+          <div class="w-100 p-2 align-self-end">
+            <button class="btn-border-blue w-100 py-2 font-weight-bold lay-bg-blue text-white" (click)="removeFromCart(item)">
+              Remover
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
